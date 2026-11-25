@@ -1,8 +1,35 @@
-evaluation
-langgraph_practice
-model_testing
-models
-security
-vectorstore
-.deepeval
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Secrets
 .env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Local models
+*.gguf
+models/
+
+# Generated vector database
+vectorstore/
+
+# DeepEval
+.deepeval/
+
+# Mis.
+langgraph_practice/
+model_testing/
+
+# Local university documents
+data/documents/*
+!data/documents/.gitkeep

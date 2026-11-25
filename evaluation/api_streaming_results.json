@@ -1,0 +1,76 @@
+{
+  "checks": {
+    "api_health": true,
+    "first_stream": true,
+    "first_thread_id": true,
+    "first_answer": true,
+    "followup_stream": true,
+    "followup_thread_id": true,
+    "followup_answer": true,
+    "fallback_stream": true,
+    "clarification_stream": true
+  },
+  "passed": true,
+  "results": {
+    "first_question": {
+      "answer": "61% of internships at JECRC University are paid.",
+      "events": [
+        "start",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "done"
+      ]
+    },
+    "followup": {
+      "answer": "The monthly internship stipend range is ₹5,000 to ₹60,000.",
+      "events": [
+        "start",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "token",
+        "done"
+      ]
+    },
+    "fallback": {
+      "answer": "I'm Uni-Bot, your University Information and Academic Assistant. I can help with university-related information and academic learning questions, but I can't help with unrelated general-purpose requests.",
+      "events": [
+        "start",
+        "token",
+        "done"
+      ]
+    },
+    "clarification": {
+      "answer": "Could you rephrase your question or add a little more detail? For example, mention your course, semester, subject, or the university process you're asking about.",
+      "events": [
+        "start",
+        "token",
+        "done"
+      ]
+    }
+  }
+}

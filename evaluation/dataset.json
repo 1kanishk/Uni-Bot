@@ -1,0 +1,570 @@
+{
+  "dataset_name": "JECRC Uni-Bot Golden Evaluation Dataset",
+  "version": "1.0",
+  "source_document": "JECRC University Information Brochure-2026",
+  "question_count": 50,
+  "notes": [
+    "Ground-truth answers are derived only from the supplied brochure.",
+    "relevant_pages are 1-indexed PDF page numbers.",
+    "For retrieval evaluation against PyPDFLoader metadata, convert the page number to a 0-indexed page field when appropriate.",
+    "The dataset intentionally mixes easy, medium, and hard questions across university facts, admissions, fees, internships, placements, scholarships, facilities, research, and student support."
+  ],
+  "questions": [
+    {
+      "id": "q001",
+      "category": "university_basics",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "When was JECRC University established?",
+      "ground_truth_answer": "JECRC University was established in 2012.",
+      "relevant_pages": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "q002",
+      "category": "university_basics",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "When was Jaipur Engineering College & Research Centre (JECRC) established?",
+      "ground_truth_answer": "Jaipur Engineering College & Research Centre was established in 2000.",
+      "relevant_pages": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "q003",
+      "category": "university_basics",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "How many alumni does the brochure say JECRC has?",
+      "ground_truth_answer": "The brochure states that JECRC has more than 34,000 alumni.",
+      "relevant_pages": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "q004",
+      "category": "university_basics",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "How many active students does JECRC have according to the brochure?",
+      "ground_truth_answer": "The brochure states that JECRC has more than 26,000 active students on rolls.",
+      "relevant_pages": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "q005",
+      "category": "university_basics",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "How many large campuses does JECRC have and what total area do they cover?",
+      "ground_truth_answer": "JECRC has 2 large campuses built across 2 million square feet of area.",
+      "relevant_pages": [
+        3
+      ]
+    },
+    {
+      "id": "q006",
+      "category": "placements",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "How many total placement offers are listed in the brochure?",
+      "ground_truth_answer": "The brochure lists 2,230+ total placement offers.",
+      "relevant_pages": [
+        6
+      ]
+    },
+    {
+      "id": "q007",
+      "category": "placements",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "How many companies are listed in the placement statistics?",
+      "ground_truth_answer": "The brochure lists 140+ companies.",
+      "relevant_pages": [
+        6
+      ]
+    },
+    {
+      "id": "q008",
+      "category": "placements",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What is the average package for technical programs?",
+      "ground_truth_answer": "The average package for technical programs is 6.45 LPA.",
+      "relevant_pages": [
+        6
+      ]
+    },
+    {
+      "id": "q009",
+      "category": "placements",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What is the highest package listed for technical programs?",
+      "ground_truth_answer": "The highest package listed for technical programs is 33 LPA.",
+      "relevant_pages": [
+        6
+      ]
+    },
+    {
+      "id": "q010",
+      "category": "placements",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "How many hours does Campus Recruitment Training (CRT) span?",
+      "ground_truth_answer": "CRT spans 500+ hours and is integrated across all 11 Schools.",
+      "relevant_pages": [
+        6
+      ]
+    },
+    {
+      "id": "q011",
+      "category": "internships",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "Is an internship mandatory across all disciplines at JECRC University, and how long is it?",
+      "ground_truth_answer": "Yes. The brochure states that JECRC emphasizes a mandatory four-month internship across all disciplines.",
+      "relevant_pages": [
+        5
+      ]
+    },
+    {
+      "id": "q012",
+      "category": "internships",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "How many recruiters are said to visit JECRC annually for internships?",
+      "ground_truth_answer": "The brochure says over 100 recruiters visit annually.",
+      "relevant_pages": [
+        5
+      ]
+    },
+    {
+      "id": "q013",
+      "category": "internships",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "How many total successful internships are reported?",
+      "ground_truth_answer": "The brochure reports 11,470 total successful internships.",
+      "relevant_pages": [
+        5
+      ]
+    },
+    {
+      "id": "q014",
+      "category": "internships",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "What percentage of the reported internships are paid?",
+      "ground_truth_answer": "61% of the reported internships are paid.",
+      "relevant_pages": [
+        5
+      ]
+    },
+    {
+      "id": "q015",
+      "category": "internships",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What monthly stipend range is shown for the internships?",
+      "ground_truth_answer": "The stipend range shown is ₹5,000 to ₹60,000 per month.",
+      "relevant_pages": [
+        5
+      ]
+    },
+    {
+      "id": "q016",
+      "category": "entrepreneurship",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "What is the purpose of the JECRC Incubation Centre (JIC)?",
+      "ground_truth_answer": "JIC supports startups and nurtures innovation by providing mentorship, funding, technological guidance, industry connections, a structured startup policy, co-working spaces, and growth opportunities.",
+      "relevant_pages": [
+        8
+      ]
+    },
+    {
+      "id": "q017",
+      "category": "entrepreneurship",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "How much in government grants has JIC secured according to the brochure?",
+      "ground_truth_answer": "JIC has secured ₹30+ crore in government grants.",
+      "relevant_pages": [
+        8
+      ]
+    },
+    {
+      "id": "q018",
+      "category": "entrepreneurship",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "How many startups has JIC incubated?",
+      "ground_truth_answer": "JIC has incubated 100+ startups.",
+      "relevant_pages": [
+        8
+      ]
+    },
+    {
+      "id": "q019",
+      "category": "entrepreneurship",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "How much funding has been disbursed to startups through JIC?",
+      "ground_truth_answer": "₹8.4+ crore has been disbursed to startups.",
+      "relevant_pages": [
+        8
+      ]
+    },
+    {
+      "id": "q020",
+      "category": "international",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "How many international universities does JECRC University collaborate with?",
+      "ground_truth_answer": "The brochure says JECRC collaborates with 25+ international universities.",
+      "relevant_pages": [
+        14
+      ]
+    },
+    {
+      "id": "q021",
+      "category": "international",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "Which language certificate course durations are offered by the Centre for Foreign Languages?",
+      "ground_truth_answer": "The brochure lists certificate course durations of 2, 4, and 6 months.",
+      "relevant_pages": [
+        14,
+        26
+      ]
+    },
+    {
+      "id": "q022",
+      "category": "international",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "In how many countries is IAESTE active according to the brochure?",
+      "ground_truth_answer": "IAESTE is active in more than 100 countries.",
+      "relevant_pages": [
+        10
+      ]
+    },
+    {
+      "id": "q023",
+      "category": "events",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "How many school students participated in India's Young Researcher Conference (IYRC) 2025?",
+      "ground_truth_answer": "IYRC 2025 brought together 250+ school students from across India.",
+      "relevant_pages": [
+        12
+      ]
+    },
+    {
+      "id": "q024",
+      "category": "events",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "How many students participated in the 4th National ISRO Science Exhibition at JECRC University?",
+      "ground_truth_answer": "The exhibition had participation from over 12,500 students across Rajasthan.",
+      "relevant_pages": [
+        12
+      ]
+    },
+    {
+      "id": "q025",
+      "category": "student_support",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What does the Mpower Cell provide at JECRC University?",
+      "ground_truth_answer": "The Mpower Cell is an in-house counselling centre that provides free and confidential counselling services, including mental health workshops, peer support, and one-on-one counselling.",
+      "relevant_pages": [
+        12
+      ]
+    },
+    {
+      "id": "q026",
+      "category": "library",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "How many physical books does the JECRC University library have?",
+      "ground_truth_answer": "The brochure says the library has around 43,130 physical books.",
+      "relevant_pages": [
+        18
+      ]
+    },
+    {
+      "id": "q027",
+      "category": "library",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "How many e-books are available through the JECRC University library?",
+      "ground_truth_answer": "The brochure says there are around 17,277 e-books.",
+      "relevant_pages": [
+        18
+      ]
+    },
+    {
+      "id": "q028",
+      "category": "library",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "How many e-journals does the JECRC University library subscribe to?",
+      "ground_truth_answer": "The brochure says the library subscribes to 24,758 e-journals.",
+      "relevant_pages": [
+        18
+      ]
+    },
+    {
+      "id": "q029",
+      "category": "campus_facilities",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What is the size of JECRC's new fully air-conditioned cafeteria?",
+      "ground_truth_answer": "The new fully air-conditioned cafeteria spans 18,000 square feet.",
+      "relevant_pages": [
+        18
+      ]
+    },
+    {
+      "id": "q030",
+      "category": "admissions",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "What is the minimum eligibility for the BCA program?",
+      "ground_truth_answer": "Candidates must pass Senior Secondary (10+2) with at least 60% aggregate marks in all subjects and pass English from a recognized board.",
+      "relevant_pages": [
+        23
+      ]
+    },
+    {
+      "id": "q031",
+      "category": "fees",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What is the annual fee listed for BCA in Artificial Intelligence and Data Science?",
+      "ground_truth_answer": "The annual fee is ₹1,60,000.",
+      "relevant_pages": [
+        23
+      ]
+    },
+    {
+      "id": "q032",
+      "category": "fees",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What is the annual fee listed for BCA Industry Specialization?",
+      "ground_truth_answer": "The annual fee is ₹1,70,000.",
+      "relevant_pages": [
+        23
+      ]
+    },
+    {
+      "id": "q033",
+      "category": "admissions",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What is the eligibility requirement for the MCA program?",
+      "ground_truth_answer": "Candidates must have passed BCA, a Bachelor's degree in Computer Science Engineering, or an equivalent degree, with at least 60% marks in the qualifying examination.",
+      "relevant_pages": [
+        23
+      ]
+    },
+    {
+      "id": "q034",
+      "category": "admissions",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "What is the minimum eligibility for the BBA program?",
+      "ground_truth_answer": "Candidates must pass 10+2 with a minimum of 60% marks in aggregate in all subjects and pass English from a recognized board.",
+      "relevant_pages": [
+        23
+      ]
+    },
+    {
+      "id": "q035",
+      "category": "fees",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What is the annual fee listed for the core BBA program?",
+      "ground_truth_answer": "The annual fee for the core BBA program is ₹1,40,000.",
+      "relevant_pages": [
+        23
+      ]
+    },
+    {
+      "id": "q036",
+      "category": "admissions",
+      "difficulty": "hard",
+      "is_answerable": true,
+      "question": "What are the mandatory and desirable requirements for the MBA program?",
+      "ground_truth_answer": "Candidates must have a minimum of 60% marks in a three-year bachelor's degree from a recognized university or equivalent and must qualify the GD-PI process. A qualifying CAT, MAT, or XAT score of the current session is desirable.",
+      "relevant_pages": [
+        23,
+        28
+      ]
+    },
+    {
+      "id": "q037",
+      "category": "admissions",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What are the admission requirements for the Bachelor of Design (B.Des.)?",
+      "ground_truth_answer": "Candidates need a minimum of 60% aggregate marks in all subjects in 10+2 from CBSE or equivalent with a pass in English. Eligible candidates are directly invited for a personal interview and portfolio presentation; the brochure also mentions a situational test.",
+      "relevant_pages": [
+        24
+      ]
+    },
+    {
+      "id": "q038",
+      "category": "admissions",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What is the duration of the Integrated Law program and what are its eligibility requirements?",
+      "ground_truth_answer": "The Integrated Law program is 5 years. Eligibility requires at least 60% aggregate marks in 10+2, a pass in English, and successful qualification of a personal interview; preference is given to candidates with a valid current-session CLAT score.",
+      "relevant_pages": [
+        25
+      ]
+    },
+    {
+      "id": "q039",
+      "category": "admissions",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What is the duration and minimum eligibility for the B.Sc. in Hospitality and Hotel Management (B.Sc. in HHM)?",
+      "ground_truth_answer": "The B.Sc. in HHM is a 3-year program requiring a minimum of 60% marks in 10+2 from CBSE or equivalent with a pass in English.",
+      "relevant_pages": [
+        25
+      ]
+    },
+    {
+      "id": "q040",
+      "category": "admissions",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What is the minimum eligibility for the Ph.D. program?",
+      "ground_truth_answer": "A Master's degree in a related discipline with a minimum of 55% marks from a recognized university is required.",
+      "relevant_pages": [
+        26
+      ]
+    },
+    {
+      "id": "q041",
+      "category": "doctoral",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What is the minimum duration of the Ph.D. program according to the brochure?",
+      "ground_truth_answer": "The minimum duration is 3 years as per UGC norms, extendable by another 3 years on a year-to-year basis subject to satisfactory progress.",
+      "relevant_pages": [
+        26
+      ]
+    },
+    {
+      "id": "q042",
+      "category": "scholarships",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "What merit scholarship is offered to UG students with 70% to 84.99% in 10+2?",
+      "ground_truth_answer": "A 15% tuition-fee merit scholarship is offered for 70% to 84.99% aggregate marks in 10+2 for all UG programs.",
+      "relevant_pages": [
+        27
+      ]
+    },
+    {
+      "id": "q043",
+      "category": "scholarships",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "What merit scholarship is offered to UG students with 85% or above in 10+2?",
+      "ground_truth_answer": "A 25% tuition-fee merit scholarship is offered for 85% and above aggregate marks in 10+2 for all UG programs.",
+      "relevant_pages": [
+        27
+      ]
+    },
+    {
+      "id": "q044",
+      "category": "scholarships",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What scholarship is available for B.Tech students with a JEE (Mains) 2026 percentile of 90 or above?",
+      "ground_truth_answer": "A 25% tuition-fee merit scholarship is available for B.Tech programs for candidates with a JEE (Mains) 2026 percentile of 90 or above in the General Category.",
+      "relevant_pages": [
+        27
+      ]
+    },
+    {
+      "id": "q045",
+      "category": "admission_rules",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "Which degree programs require students to bring their own laptops for lab and related work?",
+      "ground_truth_answer": "The brochure specifically lists B.Tech, B.Des, BVA, BCA, MCA, BBA, MBA, M.Des, and MVA. Students without laptops will not be allowed to attend lab classes and will be marked absent.",
+      "relevant_pages": [
+        31
+      ]
+    },
+    {
+      "id": "q046",
+      "category": "admission_rules",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "What is the final cutoff date for admission to all courses mentioned in the brochure?",
+      "ground_truth_answer": "The final cutoff date is 31 August 2026, subject to possible extension under applicable UGC or other competent-authority guidelines.",
+      "relevant_pages": [
+        31
+      ]
+    },
+    {
+      "id": "q047",
+      "category": "admission_rules",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "What reservation split does JECRC University state for NRI/Foreign National/PIO seats and general seats?",
+      "ground_truth_answer": "The stated reservation split is 15% for NRI/Foreign National/PIO seats and 85% for general seats.",
+      "relevant_pages": [
+        31
+      ]
+    },
+    {
+      "id": "q048",
+      "category": "fees",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "What late fee is charged when students fail to deposit fees by the due date?",
+      "ground_truth_answer": "A fine of ₹500 per day, including Sundays and holidays, is charged for up to 10 days.",
+      "relevant_pages": [
+        30
+      ]
+    },
+    {
+      "id": "q049",
+      "category": "transport",
+      "difficulty": "easy",
+      "is_answerable": true,
+      "question": "What is the annual bus/transportation fee listed for 2026?",
+      "ground_truth_answer": "The transportation fee for the bus is ₹55,000 per annum, with ₹33,000 due at admission and ₹22,000 as the second installment.",
+      "relevant_pages": [
+        29
+      ]
+    },
+    {
+      "id": "q050",
+      "category": "hostel",
+      "difficulty": "medium",
+      "is_answerable": true,
+      "question": "For how many academic years are hostel facilities allotted to UG students according to the brochure?",
+      "ground_truth_answer": "The hostel is allotted to UG students for the first two academic years, which is four semesters.",
+      "relevant_pages": [
+        29
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+query,expected,predicted,confidence,correct,latency_ms
+What is the annual fee for BCA Core?,university,university,0.1638,True,12419.81
+What are the admission eligibility criteria?,university,university,0.2509,True,84.4
+What is the minimum attendance requirement?,university,university,0.1309,True,76.92
+When is the examination form deadline?,university,university,0.118,True,101.62
+Show me the BCA third semester syllabus.,university,university,0.2111,True,109.06
+Which departments offer artificial intelligence courses?,university,university,0.0897,True,99.67
+What scholarships are available for students?,university,university,0.1793,True,82.98
+What is the annual hostel fee?,university,university,0.1205,True,80.37
+Does the placement cell provide internship assistance?,university,academic_help,0.1326,False,85.99
+Where can I find my semester timetable?,university,university,0.1574,True,79.2
+What is the procedure for obtaining a migration certificate?,university,university,0.0464,True,78.28
+How much is the revaluation fee?,university,university,0.0659,True,80.64
+When does the new academic session begin?,university,university,0.124,True,75.13
+What are the university library timings?,university,university,0.2569,True,95.49
+What are the course withdrawal rules?,university,university,0.1936,True,103.62
+Explain binary search with an example.,academic_help,academic_help,0.1624,True,107.52
+What is recursion in Python?,academic_help,academic_help,0.1094,True,102.84
+Explain Python decorators.,academic_help,academic_help,0.1443,True,146.32
+What is abstraction in object-oriented programming?,academic_help,academic_help,0.1067,True,104.07
+Explain database normalization and 3NF.,academic_help,academic_help,0.1395,True,106.14
+What is the difference between SQL joins?,academic_help,academic_help,0.0823,True,116.01
+Explain gradient descent in machine learning.,academic_help,academic_help,0.1059,True,162.96
+How does backpropagation work in neural networks?,academic_help,academic_help,0.0528,True,99.3
+What is the difference between a stack and a queue?,academic_help,academic_help,0.0598,True,152.69
+Explain React useEffect with an example.,academic_help,academic_help,0.1146,True,132.22
+What are Python list comprehensions?,academic_help,academic_help,0.1177,True,163.59
+Explain the TCP/IP protocol.,academic_help,academic_help,0.1304,True,130.55
+What is Bayes theorem?,academic_help,academic_help,0.0777,True,117.87
+Explain time complexity in DSA.,academic_help,academic_help,0.0886,True,120.9
+What is a convolutional neural network?,academic_help,academic_help,0.0809,True,112.07
+Plan a five-day trip to Goa.,out_of_scope,out_of_scope,0.0898,True,65.32
+Recommend some good shoes for running.,out_of_scope,out_of_scope,0.2719,True,91.32
+Who won yesterday's cricket match?,out_of_scope,out_of_scope,0.211,True,138.36
+Give me a recipe for chocolate cake.,out_of_scope,out_of_scope,0.1367,True,142.72
+Write a romantic poem.,out_of_scope,out_of_scope,0.1313,True,174.85
+What is the weather in Paris?,out_of_scope,out_of_scope,0.3948,True,132.32
+Recommend some good movies.,out_of_scope,out_of_scope,0.197,True,174.22
+Suggest a laptop under 60000 rupees.,out_of_scope,university,0.0984,False,132.18
+Find good restaurants in Jaipur.,out_of_scope,out_of_scope,0.1346,True,151.8
+Explain the latest stock market movements.,out_of_scope,out_of_scope,0.2751,True,134.86
+What about that?,unclear,unclear,0.1798,True,127.53
+Can you explain it?,unclear,unclear,0.1492,True,156.57
+What is the process?,unclear,university,0.1236,False,110.6
+How much does it cost?,unclear,university,0.1248,False,152.74
+When is it?,unclear,out_of_scope,0.1941,False,119.07
+Which one is better?,unclear,unclear,0.1762,True,105.27
+Tell me more.,unclear,unclear,0.0395,True,103.34
+Can I apply?,unclear,university,0.1116,False,76.12
+What happens next?,unclear,unclear,0.045,True,104.8
+Is it compulsory?,unclear,university,0.0855,False,103.89

@@ -310,7 +310,7 @@ def load_pdf(path, filename):
             except Exception as e:
                 print(f"OCR failed on page {page_number}: {e}")
 
-            for table_index, table in enumerate(page.extract_tables()):
+            for table_index, table in enumerate(page.extract_tables() or []):
                 documents.extend(
                     table_to_documents(
                         table,
@@ -324,28 +324,36 @@ def load_pdf(path, filename):
 
 
 def load_documents(data_dir):
+    if not os.path.isdir(data_dir):
+        raise FileNotFoundError(f"Document directory not found: {data_dir}")
+
     documents = []
 
-    for file in os.listdir(data_dir):
+    files = sorted(
+        os.scandir(data_dir),
+        key=lambda entry: entry.name.casefold()
+    )
 
-        path = os.path.join(data_dir, file)
+    for file in files:
+        if not file.is_file():
+            continue
 
-        if file.endswith(".pdf"):
-            documents.extend(load_pdf(path, file))
+        extension = os.path.splitext(file.name)[1].lower()
 
-        elif file.endswith(".docx"):
+        if extension == ".pdf":
+            documents.extend(load_pdf(file.path, file.name))
 
-            docs = Docx2txtLoader(path).load()
+        elif extension == ".docx":
+            docs = Docx2txtLoader(file.path).load()
 
             for doc in docs:
                 doc.page_content = normalize_text(doc.page_content)
-                doc.metadata["source"] = file
+                doc.metadata["source"] = file.name
                 doc.metadata["content_type"] = "text"
 
             documents.extend(docs)
 
     return documents
-
 
 def split_documents(documents):
 

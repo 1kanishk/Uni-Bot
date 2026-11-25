@@ -1,9 +1,28 @@
+# Core LangChain and LangGraph
 langchain
+langchain-core
 langchain-community
 langchain-huggingface
+langchain-groq
+langchain-text-splitters
 langchain-openai
+langgraph
+
+# API and frontend
+fastapi
+uvicorn[standard]
+pydantic
+requests
+streamlit
+
+# Retrieval and embeddings
 faiss-cpu
 sentence-transformers
+rank-bm25
+
+# Document loading and OCR
 pypdf
-python-dotenv
-streamlit
+pdfplumber
+pytesseract
+Pillow
+docx2txt
