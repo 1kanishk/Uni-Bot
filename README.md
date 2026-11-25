@@ -1,10 +1,20 @@
 # Uni-Bot — AI-Powered University Knowledge Assistant
 
+![Python](https://img.shields.io/badge/Python-3.12-blue) ![Streamlit](https://img.shields.io/badge/Streamlit-Frontend-red) ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688) ![LangGraph](https://img.shields.io/badge/LangGraph-Workflow-orange) ![FAISS](https://img.shields.io/badge/FAISS-Vector%20Search-green) ![RAG](https://img.shields.io/badge/AI-Hybrid%20RAG-purple)
+
 Uni-Bot is a locally run university information and academic learning assistant. It combines retrieval-augmented generation (RAG), intent-based routing, hybrid document retrieval, and a chat interface to help students find university information and understand academic or technical topics.
 
 The main application path uses a **Streamlit frontend**, a **FastAPI streaming API**, and a **LangGraph workflow**. University-specific answers are generated using retrieved university documents. Academic-help questions are routed to the answer generator without university-document retrieval.
 
 > **Project scope:** The current implementation is a locally run, workflow-orchestrated RAG assistant. It is not a fully autonomous multi-agent system and does not currently include cloud deployment or persistent database-backed conversation storage.
+
+---
+
+## Quick Navigation
+
+**[Features](#features)** · **[Architecture](#application-architecture)** · **[Tech Stack](#technology-stack)** · **[Repository Structure](#repository-structure)** · **[Prerequisites](#prerequisites)** · **[Installation](#installation-and-configuration)** · **[Run Locally](#running-the-main-application-locally)** · **[Chat API](#chat-api)** · **[Evaluation](#evaluation-and-testing)** · **[Limitations](#conversation-memory-and-current-limitations)**
+
+---
 
 ## Features
 
@@ -21,49 +31,32 @@ The main application path uses a **Streamlit frontend**, a **FastAPI streaming A
 
 ## Application Architecture
 
-```text
-                         Student
-                            |
-                            v
-                   Streamlit Chat UI
-                   streamlit_app.py
-                            |
-                    POST /chat (SSE)
-                            |
-                            v
-                       FastAPI
-                    FASTAPI/main.py
-                            |
-                            v
-                    LangGraph Workflow
-                   graph/workflow.py
-                            |
-                            v
-                   Intent Classification
-                   Local decision service
-                            |
-       +--------------------+---------------------+
-       |                    |                     |
-   university          academic_help         out_of_scope       unclear
-       |                    |                     |                |
-       v                    v                     v                v
-Hybrid Retrieval     Answer Generation        Fallback        Clarify
-       |                (Groq LLM)                |                |
-       v                    |                     |                |
- FAISS + BM25              |                     |                |
-       |                    |                     |                |
-       v                    |                     |                |
- RRF + CrossEncoder -------+---------------------+----------------+
-    Reranking
-       |
-       v
-Generated response
-       |
-  SSE events
-       |
-       v
- Streamlit UI
+```mermaid
+flowchart TD
+    A[Student] --> B["Streamlit Chat UI<br/>streamlit_app.py"]
+    B -->|POST /chat - SSE| C["FastAPI<br/>FASTAPI/main.py"]
+    C --> D["LangGraph Workflow<br/>graph/workflow.py"]
+    D --> E["Intent Classification<br/>Local decision service"]
+
+    E -->|university| F[Hybrid Retrieval]
+    F --> G["FAISS MMR + BM25"]
+    G --> H["RRF + CrossEncoder Reranking"]
+    H -->|Useful context| I["Answer Generation<br/>Groq LLM"]
+    H -->|No useful context| J[Fallback]
+
+    E -->|academic_help| I
+    E -->|out_of_scope| J
+    E -->|unclear| K[Clarify]
+
+    I --> L[Generated response]
+    J --> L
+    K --> L
+    L --> M[SSE events]
+    M --> B
 ```
+
+<details>
+<summary>Explore the LangGraph workflow, intent routing, model services, and retrieval pipeline</summary>
 
 ### LangGraph workflow
 
@@ -128,6 +121,8 @@ The ingestion pipeline is implemented in `src/loader.py`, `src/ingest.py`, and `
 
 The vector-store builder creates and validates a staging index before replacing the previous index. This helps avoid replacing a working local index with an incomplete build.
 
+</details>
+
 ## Technology Stack
 
 | Area | Technology |
@@ -146,6 +141,9 @@ The vector-store builder creates and validates a staging index before replacing 
 | OCR | Tesseract OCR, pytesseract |
 | DOCX processing | Docx2txt |
 | Evaluation | pytest, DeepEval utilities, local Qwen judge |
+
+<details>
+<summary>View the complete repository structure and generated-file guidance</summary>
 
 ## Repository Structure
 
@@ -184,6 +182,8 @@ uni-chatbot/
 ```
 
 Generated files, model weights, private documents, and environment secrets should remain local and should not be committed unless there is a specific reason and permission to publish them.
+
+</details>
 
 ## Prerequisites
 
@@ -338,6 +338,9 @@ The response uses Server-Sent Events:
 | `done` | Signals that the response has completed and includes the `thread_id`. |
 | `error` | Reports that the request could not be processed. |
 
+<details>
+<summary>Open the optional standalone RAG interface instructions</summary>
+
 ## Optional Standalone Streamlit RAG Interface
 
 `app.py` is a separate, direct RAG interface. Unlike `streamlit_app.py`, it does not call the FastAPI `/chat` endpoint or use the LangGraph conversation workflow.
@@ -358,6 +361,11 @@ streamlit run app.py
 
 The local model path and CUDA DLL directory in `src/llm.py` are currently machine-specific. Update `LLM_MODEL` and the CUDA DLL path in that file to match your local installation. This standalone route should be treated separately from the main FastAPI + LangGraph + Groq application.
 
+</details>
+
+<details>
+<summary>Open evaluation and testing instructions</summary>
+
 ## Evaluation and Testing
 
 Evaluation and testing material is organized across `tests/`, `evaluation/`, `graph_eval/`, and `security/`.
@@ -372,6 +380,8 @@ The repository also contains workflow integration tests, API streaming tests, go
 
 For the local Qwen judge, check the model path in `evaluation/judge_llm.py` before running evaluation. The judge model is an evaluation component and is separate from the Groq model used for the main LangGraph answer generation.
 
+</details>
+
 ## Conversation Memory and Current Limitations
 
 - The LangGraph workflow uses `MemorySaver` for in-memory checkpointing. Conversation history is associated with `thread_id`, but is not durable across FastAPI process restarts.
@@ -380,6 +390,9 @@ For the local Qwen judge, check the model path in `evaluation/judge_llm.py` befo
 - University answer quality depends on source-document quality, extraction, retrieval, and the generated response. Important fees, dates, eligibility details, and other official information should be checked against the latest university source.
 - The project is configured for local development and testing. A production cloud deployment, authentication system, and persistent multi-user conversation store are outside the current implementation.
 - The main application needs the configured decision service and Groq API. The optional standalone `app.py` has separate local GGUF model requirements.
+
+<details>
+<summary>Review security and repository hygiene guidance</summary>
 
 ## Security and Repository Hygiene
 
@@ -390,6 +403,19 @@ For the local Qwen judge, check the model path in `evaluation/judge_llm.py` befo
 - Retrieved university documents are treated as reference material, not instructions. The generation prompt includes context-security guidance, and adversarial testing assets are kept under `security/`.
 - Confirm redistribution rights for university brochures and other source documents before making a repository public.
 
+</details>
+
 ## Project Status
 
 Uni-Bot is a locally tested student project combining four-intent routing, LangGraph workflow orchestration, hybrid RAG retrieval, Groq answer generation, FastAPI SSE streaming, and Streamlit interfaces. The primary supported run path is `FASTAPI/main.py` with `streamlit_app.py`; `app.py` remains an optional standalone RAG interface.
+
+---
+
+## Author
+
+**Kanishk Jain**
+
+BCA Student | Generative AI Enthusiast | Python Developer
+
+- GitHub: https://github.com/1kanishk
+- LinkedIn: https://www.linkedin.com/in/kanishk-jain1/
