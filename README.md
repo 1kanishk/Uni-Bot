@@ -8,14 +8,6 @@ The main application path uses a **Streamlit frontend**, a **FastAPI streaming A
 
 > **Project scope:** The current implementation is a locally run, workflow-orchestrated RAG assistant. It is not a fully autonomous multi-agent system and does not currently include cloud deployment or persistent database-backed conversation storage.
 
----
-
-## Quick Navigation
-
-**[Features](#features)** · **[Architecture](#application-architecture)** · **[Tech Stack](#technology-stack)** · **[Repository Structure](#repository-structure)** · **[Prerequisites](#prerequisites)** · **[Installation](#installation-and-configuration)** · **[Run Locally](#running-the-main-application-locally)** · **[Chat API](#chat-api)** · **[Evaluation](#evaluation-and-testing)** · **[Limitations](#conversation-memory-and-current-limitations)**
-
----
-
 ## Features
 
 - **University information assistance:** Answers questions about university information using indexed PDF and DOCX documents.
@@ -54,9 +46,6 @@ flowchart TD
     L --> M[SSE events]
     M --> B
 ```
-
-<details>
-<summary>Explore the LangGraph workflow, intent routing, model services, and retrieval pipeline</summary>
 
 ### LangGraph workflow
 
@@ -121,7 +110,6 @@ The ingestion pipeline is implemented in `src/loader.py`, `src/ingest.py`, and `
 
 The vector-store builder creates and validates a staging index before replacing the previous index. This helps avoid replacing a working local index with an incomplete build.
 
-</details>
 
 ## Technology Stack
 
@@ -142,8 +130,6 @@ The vector-store builder creates and validates a staging index before replacing 
 | DOCX processing | Docx2txt |
 | Evaluation | pytest, DeepEval utilities, local Qwen judge |
 
-<details>
-<summary>View the complete repository structure and generated-file guidance</summary>
 
 ## Repository Structure
 
@@ -182,8 +168,6 @@ uni-chatbot/
 ```
 
 Generated files, model weights, private documents, and environment secrets should remain local and should not be committed unless there is a specific reason and permission to publish them.
-
-</details>
 
 ## Prerequisites
 
@@ -338,9 +322,6 @@ The response uses Server-Sent Events:
 | `done` | Signals that the response has completed and includes the `thread_id`. |
 | `error` | Reports that the request could not be processed. |
 
-<details>
-<summary>Open the optional standalone RAG interface instructions</summary>
-
 ## Optional Standalone Streamlit RAG Interface
 
 `app.py` is a separate, direct RAG interface. Unlike `streamlit_app.py`, it does not call the FastAPI `/chat` endpoint or use the LangGraph conversation workflow.
@@ -361,11 +342,6 @@ streamlit run app.py
 
 The local model path and CUDA DLL directory in `src/llm.py` are currently machine-specific. Update `LLM_MODEL` and the CUDA DLL path in that file to match your local installation. This standalone route should be treated separately from the main FastAPI + LangGraph + Groq application.
 
-</details>
-
-<details>
-<summary>Open evaluation and testing instructions</summary>
-
 ## Evaluation and Testing
 
 Evaluation and testing material is organized across `tests/`, `evaluation/`, `graph_eval/`, and `security/`.
@@ -380,7 +356,6 @@ The repository also contains workflow integration tests, API streaming tests, go
 
 For the local Qwen judge, check the model path in `evaluation/judge_llm.py` before running evaluation. The judge model is an evaluation component and is separate from the Groq model used for the main LangGraph answer generation.
 
-</details>
 
 ## Conversation Memory and Current Limitations
 
@@ -391,8 +366,6 @@ For the local Qwen judge, check the model path in `evaluation/judge_llm.py` befo
 - The project is configured for local development and testing. A production cloud deployment, authentication system, and persistent multi-user conversation store are outside the current implementation.
 - The main application needs the configured decision service and Groq API. The optional standalone `app.py` has separate local GGUF model requirements.
 
-<details>
-<summary>Review security and repository hygiene guidance</summary>
 
 ## Security and Repository Hygiene
 
@@ -403,7 +376,6 @@ For the local Qwen judge, check the model path in `evaluation/judge_llm.py` befo
 - Retrieved university documents are treated as reference material, not instructions. The generation prompt includes context-security guidance, and adversarial testing assets are kept under `security/`.
 - Confirm redistribution rights for university brochures and other source documents before making a repository public.
 
-</details>
 
 ## Project Status
 
