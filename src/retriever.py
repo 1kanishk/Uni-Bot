@@ -1,11 +1,19 @@
 from rank_bm25 import BM25Okapi
 from sentence_transformers import CrossEncoder
-
+import re
 # from src.llm import get_llm
 from src.config import TOP_K
 
 
 class AdvancedRetriever:
+
+    @staticmethod
+    def tokenize(text):
+        return re.findall(
+            r"[a-z]+|\d+(?:[.,]\d+)*%?",
+            text.lower()
+        )
+
 
     def __init__(self, documents, vectorstore):
 
@@ -13,7 +21,7 @@ class AdvancedRetriever:
         self.vectorstore = vectorstore
         # self.llm = llm
 
-        self.bm25 = BM25Okapi([doc.page_content.lower().split() for doc in documents])
+        self.bm25 = BM25Okapi([self.tokenize(doc.page_content) for doc in documents])
 
         self.reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
 
@@ -27,7 +35,7 @@ class AdvancedRetriever:
 
     def bm25_search(self, query, k):
 
-        scores = self.bm25.get_scores(query.lower().split())
+        scores = self.bm25.get_scores(self.tokenize(query))
 
         ranked = sorted(zip(self.documents, scores), key=lambda x: x[1], reverse=True)
 
@@ -74,49 +82,4 @@ class AdvancedRetriever:
 
         return self.rerank(question, fused_results, top_k)
 
-
-## RAG FUSION :-
-# def generate_queries(self, question):
-
-#         prompt = f"""
-# Generate 3 different search queries for this university question.
-
-# Original question:
-# {question}
-
-# Make each query focus on a slightly different way of finding
-# the relevant information.
-
-# Return only the queries, one per line.
-# """
-
-#         response = self.llm.invoke(prompt)
-
-#         queries = response.content.split("\n")
-
-#         queries = [q.strip() for q in queries if q.strip()]
-
-#         return queries[:3]
-
-
-# RETRIEVER FOR RAG FUSION :-
-# def retrieve(self, question, top_k=4):
-
-#         queries = self.generate_queries(question)
-
-#         all_results = []
-
-#         for query in queries:
-
-#             mmr_results = self.mmr_search(query, k=5)
-
-#             bm25_results = self.bm25_search(query, k=5)
-
-#             all_results.append(mmr_results)
-#             all_results.append(bm25_results)
-
-#         fused_results = self.reciprocal_rank_fusion(all_results)
-
-#         final_documents = self.rerank(question, fused_results, top_k)
-
-#         return final_documents
+    

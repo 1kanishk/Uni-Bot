@@ -1,0 +1,944 @@
+{
+  "run_timestamp": "2026-11-21T12:04:21.415904+05:30",
+  "test_type": "laya_only_classification",
+  "classifier": "graph.nodes.classify_intent_node",
+  "groq_inference_requests": 0,
+  "metrics": {
+    "total_cases": 74,
+    "successful_calls": 12,
+    "failed_calls": 62,
+    "correct": 12,
+    "incorrect": 0,
+    "accuracy": 1.0,
+    "dataset_pass_rate": 0.1622,
+    "macro_f1": 0.25,
+    "per_class": {
+      "university": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "academic_help": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "out_of_scope": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "unclear": {
+        "support": 12,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "confusion_matrix": {
+      "university": {
+        "university": 0,
+        "academic_help": 0,
+        "out_of_scope": 0,
+        "unclear": 0
+      },
+      "academic_help": {
+        "university": 0,
+        "academic_help": 0,
+        "out_of_scope": 0,
+        "unclear": 0
+      },
+      "out_of_scope": {
+        "university": 0,
+        "academic_help": 0,
+        "out_of_scope": 0,
+        "unclear": 0
+      },
+      "unclear": {
+        "university": 0,
+        "academic_help": 0,
+        "out_of_scope": 0,
+        "unclear": 12
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "UNI-001",
+      "query": "What is the annual fee for BCA Core?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0559,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-002",
+      "query": "What are the admission eligibility criteria for BCA?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0458,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-003",
+      "query": "What documents are required for BCA admission?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0415,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-004",
+      "query": "How can a student apply for admission to the BCA programme?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0585,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-005",
+      "query": "What is the annual fee for BCA Industry Specialization?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.035,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-006",
+      "query": "What is the fee for the BCA Artificial Intelligence and Data Science specialization?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0576,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-007",
+      "query": "What scholarship opportunities are available to students?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0372,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-008",
+      "query": "What are the eligibility conditions for university scholarships?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0416,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-009",
+      "query": "How can students apply for a scholarship?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0374,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-010",
+      "query": "What is the minimum attendance requirement for examinations?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0376,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-011",
+      "query": "What happens if a student does not meet the attendance requirement?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0297,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-012",
+      "query": "Are there any attendance condonation rules?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0363,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-013",
+      "query": "What are the examination eligibility rules?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0596,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-014",
+      "query": "How do students submit the semester examination form?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0453,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-015",
+      "query": "Where can students find the academic calendar?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.038,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-016",
+      "query": "What is the semester examination schedule?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0526,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-017",
+      "query": "Where can I find the timetable for BCA classes?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0579,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-018",
+      "query": "Which subjects are taught in the BCA programme?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0461,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-019",
+      "query": "Where can I find the BCA syllabus?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0408,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-020",
+      "query": "Which department is responsible for the BCA programme?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0524,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-021",
+      "query": "Which language certificate course durations are offered by the Centre for Foreign Languages?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0375,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-022",
+      "query": "Which foreign language courses are offered by the university?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0485,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-023",
+      "query": "How many total placement offers are listed in the placement brochure?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0404,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-024",
+      "query": "What percentage of internships are paid according to the placement information?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0513,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-025",
+      "query": "What monthly stipend range is listed for paid internships?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0434,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-026",
+      "query": "What placement assistance does the university provide?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0509,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-027",
+      "query": "Which companies are mentioned in the university placement brochure?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0263,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-028",
+      "query": "What hostel facilities are available for students?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0462,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-029",
+      "query": "What transportation facilities are available on campus?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0363,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-030",
+      "query": "Which student clubs and societies can students join?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0554,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-031",
+      "query": "What campus facilities are available to students?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0282,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNI-032",
+      "query": "What events and technical activities are organized by the university?",
+      "expected_intent": "university",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0362,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-001",
+      "query": "Explain binary search in Python with a complete example.",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0337,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-002",
+      "query": "Explain database normalization and why it is used.",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0329,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-003",
+      "query": "Explain the ACID properties of database transactions.",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0538,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-004",
+      "query": "What are Python decorators? Explain with an example.",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0325,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-005",
+      "query": "Explain the four pillars of object-oriented programming.",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0333,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-006",
+      "query": "What is recursion? Explain with a Python example.",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0388,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-007",
+      "query": "Explain the difference between a stack and a queue.",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.051,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-008",
+      "query": "What is a linked list and how does it work?",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0403,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-009",
+      "query": "Explain INNER JOIN and LEFT JOIN in SQL.",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0512,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-010",
+      "query": "What is the difference between supervised and unsupervised learning?",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0495,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-011",
+      "query": "Explain overfitting in machine learning and how to prevent it.",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0376,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-012",
+      "query": "What is gradient descent in machine learning?",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0396,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-013",
+      "query": "Explain how a convolutional neural network works.",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0479,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-014",
+      "query": "What is self-attention in transformer models?",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.022,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-015",
+      "query": "Explain retrieval-augmented generation in simple terms.",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0471,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-016",
+      "query": "What are pointers in C++? Explain with a small example.",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0407,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-017",
+      "query": "Explain the difference between an array and a linked list.",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0467,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "ACA-018",
+      "query": "What is the time complexity of merge sort?",
+      "expected_intent": "academic_help",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0461,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "OOS-001",
+      "query": "Plan a five-day trip to Goa.",
+      "expected_intent": "out_of_scope",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0438,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "OOS-002",
+      "query": "Recommend a smartphone under 25000 rupees.",
+      "expected_intent": "out_of_scope",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0597,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "OOS-003",
+      "query": "Write a romantic poem for my partner.",
+      "expected_intent": "out_of_scope",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0415,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "OOS-004",
+      "query": "What is today's cricket score?",
+      "expected_intent": "out_of_scope",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0505,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "OOS-005",
+      "query": "Suggest some clothing brands for men.",
+      "expected_intent": "out_of_scope",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0695,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "OOS-006",
+      "query": "Give me a recipe for paneer butter masala.",
+      "expected_intent": "out_of_scope",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0414,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "OOS-007",
+      "query": "Recommend five thriller movies to watch this weekend.",
+      "expected_intent": "out_of_scope",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0557,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "OOS-008",
+      "query": "Create a weekly gym workout plan for muscle gain.",
+      "expected_intent": "out_of_scope",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0342,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "OOS-009",
+      "query": "Compare the latest prices of popular wireless earbuds.",
+      "expected_intent": "out_of_scope",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0654,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "OOS-010",
+      "query": "Write a birthday invitation for my friend.",
+      "expected_intent": "out_of_scope",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0429,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "OOS-011",
+      "query": "Tell me the latest stock market news.",
+      "expected_intent": "out_of_scope",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.0355,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "OOS-012",
+      "query": "Suggest a playlist for a wedding party.",
+      "expected_intent": "out_of_scope",
+      "predicted_intent": null,
+      "intent_confidence": null,
+      "intent_probabilities": null,
+      "latency_seconds": 2.035,
+      "passed": false,
+      "error": "RuntimeError: Could not connect to Ollaya. Check the Ollaya server."
+    },
+    {
+      "id": "UNC-001",
+      "query": "What about that?",
+      "expected_intent": "unclear",
+      "predicted_intent": "unclear",
+      "intent_confidence": 1.0,
+      "intent_probabilities": {
+        "university": 0.0,
+        "academic_help": 0.0,
+        "out_of_scope": 0.0,
+        "unclear": 1.0
+      },
+      "latency_seconds": 0.0001,
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "UNC-002",
+      "query": "When is it?",
+      "expected_intent": "unclear",
+      "predicted_intent": "unclear",
+      "intent_confidence": 1.0,
+      "intent_probabilities": {
+        "university": 0.0,
+        "academic_help": 0.0,
+        "out_of_scope": 0.0,
+        "unclear": 1.0
+      },
+      "latency_seconds": 0.0001,
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "UNC-003",
+      "query": "Can I apply for it?",
+      "expected_intent": "unclear",
+      "predicted_intent": "unclear",
+      "intent_confidence": 1.0,
+      "intent_probabilities": {
+        "university": 0.0,
+        "academic_help": 0.0,
+        "out_of_scope": 0.0,
+        "unclear": 1.0
+      },
+      "latency_seconds": 0.0,
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "UNC-004",
+      "query": "Is it allowed?",
+      "expected_intent": "unclear",
+      "predicted_intent": "unclear",
+      "intent_confidence": 1.0,
+      "intent_probabilities": {
+        "university": 0.0,
+        "academic_help": 0.0,
+        "out_of_scope": 0.0,
+        "unclear": 1.0
+      },
+      "latency_seconds": 0.0,
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "UNC-005",
+      "query": "How much does it cost?",
+      "expected_intent": "unclear",
+      "predicted_intent": "unclear",
+      "intent_confidence": 1.0,
+      "intent_probabilities": {
+        "university": 0.0,
+        "academic_help": 0.0,
+        "out_of_scope": 0.0,
+        "unclear": 1.0
+      },
+      "latency_seconds": 0.0001,
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "UNC-006",
+      "query": "When does it start?",
+      "expected_intent": "unclear",
+      "predicted_intent": "unclear",
+      "intent_confidence": 1.0,
+      "intent_probabilities": {
+        "university": 0.0,
+        "academic_help": 0.0,
+        "out_of_scope": 0.0,
+        "unclear": 1.0
+      },
+      "latency_seconds": 0.0001,
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "UNC-007",
+      "query": "What are the requirements?",
+      "expected_intent": "unclear",
+      "predicted_intent": "unclear",
+      "intent_confidence": 1.0,
+      "intent_probabilities": {
+        "university": 0.0,
+        "academic_help": 0.0,
+        "out_of_scope": 0.0,
+        "unclear": 1.0
+      },
+      "latency_seconds": 0.0001,
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "UNC-008",
+      "query": "Can you explain this?",
+      "expected_intent": "unclear",
+      "predicted_intent": "unclear",
+      "intent_confidence": 1.0,
+      "intent_probabilities": {
+        "university": 0.0,
+        "academic_help": 0.0,
+        "out_of_scope": 0.0,
+        "unclear": 1.0
+      },
+      "latency_seconds": 0.0001,
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "UNC-009",
+      "query": "Tell me more about it.",
+      "expected_intent": "unclear",
+      "predicted_intent": "unclear",
+      "intent_confidence": 1.0,
+      "intent_probabilities": {
+        "university": 0.0,
+        "academic_help": 0.0,
+        "out_of_scope": 0.0,
+        "unclear": 1.0
+      },
+      "latency_seconds": 0.0,
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "UNC-010",
+      "query": "What is the process?",
+      "expected_intent": "unclear",
+      "predicted_intent": "unclear",
+      "intent_confidence": 1.0,
+      "intent_probabilities": {
+        "university": 0.0,
+        "academic_help": 0.0,
+        "out_of_scope": 0.0,
+        "unclear": 1.0
+      },
+      "latency_seconds": 0.0,
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "UNC-011",
+      "query": "Is that available?",
+      "expected_intent": "unclear",
+      "predicted_intent": "unclear",
+      "intent_confidence": 1.0,
+      "intent_probabilities": {
+        "university": 0.0,
+        "academic_help": 0.0,
+        "out_of_scope": 0.0,
+        "unclear": 1.0
+      },
+      "latency_seconds": 0.0,
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "UNC-012",
+      "query": "How do I do that?",
+      "expected_intent": "unclear",
+      "predicted_intent": "unclear",
+      "intent_confidence": 1.0,
+      "intent_probabilities": {
+        "university": 0.0,
+        "academic_help": 0.0,
+        "out_of_scope": 0.0,
+        "unclear": 1.0
+      },
+      "latency_seconds": 0.0,
+      "passed": true,
+      "error": null
+    }
+  ]
+}

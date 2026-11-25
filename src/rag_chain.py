@@ -41,7 +41,7 @@
 import re
 
 from src.prompt import get_prompt
-from src.llm import get_llm
+from src.llm import get_llm, get_groq_llm
 
 def clean_context(text):
     text = re.sub(r"\s+", " ", text)
@@ -49,6 +49,8 @@ def clean_context(text):
 
 
 class RAGChain:
+
+    llm = get_groq_llm()
 
     def __init__(self, retriever, llm):
         self.retriever = retriever

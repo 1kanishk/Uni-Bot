@@ -1,13 +1,14 @@
 import os
 import re
 import pdfplumber
+import pytesseract
+pytesseract.pytesseract.tesseract_cmd = (
+    r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+)
 import unicodedata
 
 from langchain_core.documents import Document
-from langchain_community.document_loaders import (
-    PyPDFLoader,
-    Docx2txtLoader
-)
+from langchain_community.document_loaders import PyPDFLoader, Docx2txtLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from src.config import CHUNK_SIZE, CHUNK_OVERLAP
 
@@ -24,11 +25,20 @@ def normalize_text(text):
 
     text = unicodedata.normalize("NFKC", text)
     text = text.replace("\xa0", " ")
-    text = " ".join(text.split())
-    text = re.sub(r"(?<=\+)(?=[A-Za-z])", " ", text)
-    text = re.sub(r"(?<=LPA)(?=[A-Za-z])", " ", text, flags=re.IGNORECASE)
 
-    return text.strip()
+    text = re.sub(r"(?<=[a-z])(?=[A-Z])", " ", text)
+    text = re.sub(r"(?<=\d)(?=[A-Z])", " ", text)
+    text = re.sub(r"(?<=[%₹])(?=[A-Za-z])", " ", text)
+
+    text = re.sub(r"(?<=\+)(?=[A-Za-z])", " ", text)
+    text = re.sub(
+        r"(?<=LPA)(?=[A-Za-z])",
+        " ",
+        text,
+        flags=re.IGNORECASE
+    )
+
+    return " ".join(text.split()).strip()
 
 
 def normalize_header(value, index):
@@ -58,6 +68,7 @@ def normalize_header(value, index):
 
     return value
 
+
 def structure_statistics(text):
     if not text:
         return text
@@ -68,14 +79,38 @@ def structure_statistics(text):
     patterns = [
         ("Total Placement Offers", r"(\d[\d,]*\+?)\s*Total Placements Offers"),
         ("Number of Companies", r"(\d[\d,]*\+?)\s*Number of Companies"),
-        ("Average Package - Management", r"(\d+(?:\.\d+)?)\s*LPA\s*Average Package\s*\(Management\)"),
-        ("Average Package - Technical", r"(\d+(?:\.\d+)?)\s*LPA\s*Average Package\s*\(Technical\)"),
-        ("Average Package - ME/CE/ECE", r"(\d+(?:\.\d+)?)\s*LPA\s*Average Package\s*\(ME/CE/ECE\)"),
-        ("Average Package - Skill Based Programs", r"(\d+(?:\.\d+)?)\s*LPA\s*Average Package\s*\(Skill Based Programs\)"),
-        ("Highest Package - Management", r"(\d+(?:\.\d+)?)\s*LPA\s*Highest Package\s*\(Management\)"),
-        ("Highest Package - Technical", r"(\d+(?:\.\d+)?)\s*LPA\s*Highest Package\s*\(Technical\)"),
-        ("Highest Package - ME/CE/ECE", r"(\d+(?:\.\d+)?)\s*LPA\s*Highest Package\s*\(ME/CE/ECE\)"),
-        ("Highest Package - Skill Based Programs", r"(\d+(?:\.\d+)?)\s*LPA\s*Highest Package\s*\(Skill Based Programs\)")
+        (
+            "Average Package - Management",
+            r"(\d+(?:\.\d+)?)\s*LPA\s*Average Package\s*\(Management\)",
+        ),
+        (
+            "Average Package - Technical",
+            r"(\d+(?:\.\d+)?)\s*LPA\s*Average Package\s*\(Technical\)",
+        ),
+        (
+            "Average Package - ME/CE/ECE",
+            r"(\d+(?:\.\d+)?)\s*LPA\s*Average Package\s*\(ME/CE/ECE\)",
+        ),
+        (
+            "Average Package - Skill Based Programs",
+            r"(\d+(?:\.\d+)?)\s*LPA\s*Average Package\s*\(Skill Based Programs\)",
+        ),
+        (
+            "Highest Package - Management",
+            r"(\d+(?:\.\d+)?)\s*LPA\s*Highest Package\s*\(Management\)",
+        ),
+        (
+            "Highest Package - Technical",
+            r"(\d+(?:\.\d+)?)\s*LPA\s*Highest Package\s*\(Technical\)",
+        ),
+        (
+            "Highest Package - ME/CE/ECE",
+            r"(\d+(?:\.\d+)?)\s*LPA\s*Highest Package\s*\(ME/CE/ECE\)",
+        ),
+        (
+            "Highest Package - Skill Based Programs",
+            r"(\d+(?:\.\d+)?)\s*LPA\s*Highest Package\s*\(Skill Based Programs\)",
+        ),
     ]
 
     structured = []
@@ -89,18 +124,13 @@ def structure_statistics(text):
             if "Package" in label:
                 value = f"{value} LPA"
 
-            structured.append(
-                f"- {label}: {value}"
-            )
+            structured.append(f"- {label}: {value}")
 
     if not structured:
         return text
 
-    return (
-        text
-        + "\n\nStructured Statistics:\n"
-        + "\n".join(structured)
-    )
+    return text + "\n\nStructured Statistics:\n" + "\n".join(structured)
+
 
 def table_to_documents(table, filename, page_number, table_index):
     rows = []
@@ -134,32 +164,21 @@ def table_to_documents(table, filename, page_number, table_index):
     if header_index is None:
         return []
 
-    raw_headers = (
-        rows[header_index] + [""] * width
-    )[:width]
+    raw_headers = (rows[header_index] + [""] * width)[:width]
 
-    headers = [
-        normalize_header(value, i)
-        for i, value in enumerate(raw_headers)
-    ]
+    headers = [normalize_header(value, i) for i, value in enumerate(raw_headers)]
 
     documents = []
     previous_program = ""
 
-    for row_index, row in enumerate(
-        rows[header_index + 1:],
-        start=header_index + 1
-    ):
+    for row_index, row in enumerate(rows[header_index + 1 :], start=header_index + 1):
         row = (row + [""] * width)[:width]
         nonempty = [cell for cell in row if cell]
 
         if len(nonempty) < 2:
             continue
 
-        if (
-            max(map(len, nonempty)) > 700
-            or sum(map(len, nonempty)) > 1400
-        ):
+        if max(map(len, nonempty)) > 700 or sum(map(len, nonempty)) > 1400:
             continue
 
         fields = []
@@ -187,34 +206,72 @@ def table_to_documents(table, filename, page_number, table_index):
                     "page": page_number,
                     "content_type": "table_row",
                     "table_index": table_index,
-                    "row_index": row_index
-                }
+                    "row_index": row_index,
+                },
             )
         )
 
     return documents
 
 
+def compact_text(text):
+    return re.sub(r"[^a-z0-9₹]", "", text.lower())
+
+
+def get_missing_ocr_lines(native_text, ocr_text):
+    native_compact = compact_text(native_text)
+    native_tokens = set(
+        re.findall(r"₹|[a-z]+|\d+(?:[.,]\d+)*%?", native_text.lower())
+    )
+
+    missing = []
+    seen = set()
+
+    for raw_line in ocr_text.splitlines():
+        line = normalize_text(raw_line)
+        compact = compact_text(line)
+
+        if len(compact) < 3 or compact in seen:
+            continue
+
+        if compact in native_compact:
+            continue
+
+        tokens = set(
+            re.findall(r"₹|[a-z]+|\d+(?:[.,]\d+)*%?", line.lower())
+        )
+
+        has_number = any(re.search(r"\d", token) for token in tokens)
+
+        if (
+            len(tokens) >= 5
+            and not has_number
+            and len(tokens & native_tokens) / len(tokens) >= 0.9
+        ):
+            continue
+
+        missing.append(line)
+        seen.add(compact)
+
+    return "\n".join(missing)
+
+
 def load_pdf(path, filename):
     documents = []
-
     normal_docs = PyPDFLoader(path).load()
 
     with pdfplumber.open(path) as pdf:
-
         for page_number, page in enumerate(pdf.pages, start=1):
-
-            page_text = ""
+            native_text = ""
 
             if page_number <= len(normal_docs):
-
-                page_text = normalize_text(
+                native_text = normalize_text(
                     normal_docs[page_number - 1].page_content
                 )
 
-                page_text = structure_statistics(page_text)
+            page_text = structure_statistics(native_text)
 
-            if page_text.strip():
+            if page_text:
                 documents.append(
                     Document(
                         page_content=page_text,
@@ -226,18 +283,42 @@ def load_pdf(path, filename):
                     )
                 )
 
-            tables = page.extract_tables()
-
-            for table_index, table in enumerate(tables):
-
-                table_documents = table_to_documents(
-                    table,
-                    filename,
-                    page_number,
-                    table_index
+            try:
+                image = page.to_image(resolution=300).original
+                ocr_text = pytesseract.image_to_string(
+                    image,
+                    config="--psm 3"
                 )
 
-                documents.extend(table_documents)
+                missing_text = get_missing_ocr_lines(
+                    native_text,
+                    ocr_text
+                )
+
+                if missing_text:
+                    documents.append(
+                        Document(
+                            page_content=missing_text,
+                            metadata={
+                                "source": filename,
+                                "page": page_number,
+                                "content_type": "ocr"
+                            }
+                        )
+                    )
+
+            except Exception as e:
+                print(f"OCR failed on page {page_number}: {e}")
+
+            for table_index, table in enumerate(page.extract_tables()):
+                documents.extend(
+                    table_to_documents(
+                        table,
+                        filename,
+                        page_number,
+                        table_index
+                    )
+                )
 
     return documents
 
@@ -250,9 +331,7 @@ def load_documents(data_dir):
         path = os.path.join(data_dir, file)
 
         if file.endswith(".pdf"):
-            documents.extend(
-                load_pdf(path, file)
-            )
+            documents.extend(load_pdf(path, file))
 
         elif file.endswith(".docx"):
 
@@ -271,18 +350,15 @@ def load_documents(data_dir):
 def split_documents(documents):
 
     text_documents = [
-        doc for doc in documents
-        if doc.metadata.get("content_type") != "table_row"
+        doc for doc in documents if doc.metadata.get("content_type") != "table_row"
     ]
 
     table_documents = [
-        doc for doc in documents
-        if doc.metadata.get("content_type") == "table_row"
+        doc for doc in documents if doc.metadata.get("content_type") == "table_row"
     ]
 
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=CHUNK_SIZE,
-        chunk_overlap=CHUNK_OVERLAP
+        chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP
     )
 
     split_text = splitter.split_documents(text_documents)
@@ -292,20 +368,12 @@ def split_documents(documents):
 
 if __name__ == "__main__":
 
+    from src.loader import load_documents
     from src.config import DATA_DIR
 
     docs = load_documents(DATA_DIR)
 
-    print(f"Total documents: {len(docs)}")
-
     for doc in docs:
-
-        if doc.metadata.get("content_type") == "table_row":
-
-            print("\n" + "=" * 80)
-            print(
-                f"PAGE: {doc.metadata.get('page')} "
-                f"| ROW: {doc.metadata.get('row_index')}"
-            )
-            print("=" * 80)
-            print(doc.page_content)
+        if doc.metadata.get("page") == 5:
+            if doc.metadata.get("content_type") in ("ocr", "ocr_fact"):
+                print(doc.metadata["content_type"], doc.page_content)

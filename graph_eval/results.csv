@@ -1,0 +1,75 @@
+﻿id,query,expected_intent,predicted_intent,intent_confidence,latency_seconds,passed,error
+UNI-001,What is the annual fee for BCA Core?,university,,,2.0559,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-002,What are the admission eligibility criteria for BCA?,university,,,2.0458,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-003,What documents are required for BCA admission?,university,,,2.0415,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-004,How can a student apply for admission to the BCA programme?,university,,,2.0585,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-005,What is the annual fee for BCA Industry Specialization?,university,,,2.035,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-006,What is the fee for the BCA Artificial Intelligence and Data Science specialization?,university,,,2.0576,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-007,What scholarship opportunities are available to students?,university,,,2.0372,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-008,What are the eligibility conditions for university scholarships?,university,,,2.0416,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-009,How can students apply for a scholarship?,university,,,2.0374,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-010,What is the minimum attendance requirement for examinations?,university,,,2.0376,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-011,What happens if a student does not meet the attendance requirement?,university,,,2.0297,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-012,Are there any attendance condonation rules?,university,,,2.0363,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-013,What are the examination eligibility rules?,university,,,2.0596,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-014,How do students submit the semester examination form?,university,,,2.0453,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-015,Where can students find the academic calendar?,university,,,2.038,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-016,What is the semester examination schedule?,university,,,2.0526,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-017,Where can I find the timetable for BCA classes?,university,,,2.0579,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-018,Which subjects are taught in the BCA programme?,university,,,2.0461,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-019,Where can I find the BCA syllabus?,university,,,2.0408,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-020,Which department is responsible for the BCA programme?,university,,,2.0524,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-021,Which language certificate course durations are offered by the Centre for Foreign Languages?,university,,,2.0375,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-022,Which foreign language courses are offered by the university?,university,,,2.0485,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-023,How many total placement offers are listed in the placement brochure?,university,,,2.0404,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-024,What percentage of internships are paid according to the placement information?,university,,,2.0513,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-025,What monthly stipend range is listed for paid internships?,university,,,2.0434,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-026,What placement assistance does the university provide?,university,,,2.0509,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-027,Which companies are mentioned in the university placement brochure?,university,,,2.0263,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-028,What hostel facilities are available for students?,university,,,2.0462,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-029,What transportation facilities are available on campus?,university,,,2.0363,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-030,Which student clubs and societies can students join?,university,,,2.0554,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-031,What campus facilities are available to students?,university,,,2.0282,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNI-032,What events and technical activities are organized by the university?,university,,,2.0362,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-001,Explain binary search in Python with a complete example.,academic_help,,,2.0337,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-002,Explain database normalization and why it is used.,academic_help,,,2.0329,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-003,Explain the ACID properties of database transactions.,academic_help,,,2.0538,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-004,What are Python decorators? Explain with an example.,academic_help,,,2.0325,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-005,Explain the four pillars of object-oriented programming.,academic_help,,,2.0333,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-006,What is recursion? Explain with a Python example.,academic_help,,,2.0388,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-007,Explain the difference between a stack and a queue.,academic_help,,,2.051,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-008,What is a linked list and how does it work?,academic_help,,,2.0403,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-009,Explain INNER JOIN and LEFT JOIN in SQL.,academic_help,,,2.0512,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-010,What is the difference between supervised and unsupervised learning?,academic_help,,,2.0495,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-011,Explain overfitting in machine learning and how to prevent it.,academic_help,,,2.0376,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-012,What is gradient descent in machine learning?,academic_help,,,2.0396,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-013,Explain how a convolutional neural network works.,academic_help,,,2.0479,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-014,What is self-attention in transformer models?,academic_help,,,2.022,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-015,Explain retrieval-augmented generation in simple terms.,academic_help,,,2.0471,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-016,What are pointers in C++? Explain with a small example.,academic_help,,,2.0407,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-017,Explain the difference between an array and a linked list.,academic_help,,,2.0467,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+ACA-018,What is the time complexity of merge sort?,academic_help,,,2.0461,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+OOS-001,Plan a five-day trip to Goa.,out_of_scope,,,2.0438,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+OOS-002,Recommend a smartphone under 25000 rupees.,out_of_scope,,,2.0597,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+OOS-003,Write a romantic poem for my partner.,out_of_scope,,,2.0415,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+OOS-004,What is today's cricket score?,out_of_scope,,,2.0505,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+OOS-005,Suggest some clothing brands for men.,out_of_scope,,,2.0695,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+OOS-006,Give me a recipe for paneer butter masala.,out_of_scope,,,2.0414,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+OOS-007,Recommend five thriller movies to watch this weekend.,out_of_scope,,,2.0557,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+OOS-008,Create a weekly gym workout plan for muscle gain.,out_of_scope,,,2.0342,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+OOS-009,Compare the latest prices of popular wireless earbuds.,out_of_scope,,,2.0654,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+OOS-010,Write a birthday invitation for my friend.,out_of_scope,,,2.0429,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+OOS-011,Tell me the latest stock market news.,out_of_scope,,,2.0355,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+OOS-012,Suggest a playlist for a wedding party.,out_of_scope,,,2.035,False,RuntimeError: Could not connect to Ollaya. Check the Ollaya server.
+UNC-001,What about that?,unclear,unclear,1.0,0.0001,True,
+UNC-002,When is it?,unclear,unclear,1.0,0.0001,True,
+UNC-003,Can I apply for it?,unclear,unclear,1.0,0.0,True,
+UNC-004,Is it allowed?,unclear,unclear,1.0,0.0,True,
+UNC-005,How much does it cost?,unclear,unclear,1.0,0.0001,True,
+UNC-006,When does it start?,unclear,unclear,1.0,0.0001,True,
+UNC-007,What are the requirements?,unclear,unclear,1.0,0.0001,True,
+UNC-008,Can you explain this?,unclear,unclear,1.0,0.0001,True,
+UNC-009,Tell me more about it.,unclear,unclear,1.0,0.0,True,
+UNC-010,What is the process?,unclear,unclear,1.0,0.0,True,
+UNC-011,Is that available?,unclear,unclear,1.0,0.0,True,
+UNC-012,How do I do that?,unclear,unclear,1.0,0.0,True,

@@ -5,3 +5,4 @@ models
 security
 vectorstore
 .deepeval
+.env
